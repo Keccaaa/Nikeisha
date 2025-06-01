@@ -24,7 +24,6 @@
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Dream-failed-to-fetch-Dream" alt="Dream Badge"/>
   <img src="https://img.shields.io/badge/Age-15-lightgrey" alt="Age Badge"/>
   <img src="https://img.shields.io/badge/Nationality-Indonesia-red" alt="Indonesia Badge"/>
 </p>
