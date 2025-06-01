@@ -18,7 +18,7 @@
 
 ### 💬 Favorite Quote
 
-> **"Great dreams begin with self-belief and strong determination."**  
+> **"[Quote]"**  
 > *— A reminder to never give up on what truly matters.*
 
 ---
