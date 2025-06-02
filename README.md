@@ -8,7 +8,7 @@
 
 ### 💡 About Me
 
-- 🎯 **-**  
+- 🎯 **Polwan**  
 - 📚 Always open to learning and trying new things  
 - 🌱 Interested in self-growth and character building  
 - 🌏 Living in Indonesia  
@@ -18,7 +18,7 @@
 
 ### 💬 Favorite Quote
 
-> **"[Quote]"**  
+> **"Great dreams begin with self-belief and strong determination."**  
 > *— A reminder to never give up on what truly matters.*
 
 ---
