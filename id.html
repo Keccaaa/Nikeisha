@@ -257,6 +257,12 @@
         height: 28px;
       }
 
+      @media (max-width: 600px) {
+        .btn-text {
+          display: none;
+        }
+      }
+
       .btn-text {
         user-select: none;
       }
@@ -325,6 +331,41 @@
       #credit-by-someone a:hover {
         text-decoration: underline;
       }
+
+      .translate-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .translate-btn {
+        background: #fff;
+        color: #c84191;
+        border: 2px solid #c84191;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(200, 65, 145, 0.2);
+        transition: all 0.3s ease;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      .translate-btn:hover {
+        background: #c84191;
+        color: #fff;
+      }
+      
+      .translate-btn.active {
+        background: #c84191;
+        color: #fff;
+        pointer-events: none;
+      }
     </style>
   </head>
   <body>
@@ -340,7 +381,7 @@
       <div class="card-container" aria-label="Informasi profil">
         <div class="card" tabindex="0">
           <h3>Cita-cita</h3>
-          <p>Polwan</p>
+          <p>-</p>
         </div>
         <div class="card" tabindex="0">
           <h3>Umur</h3>
@@ -348,7 +389,7 @@
         </div>
         <div class="card" tabindex="0">
           <h3>Status</h3>
-          <p>Saat ini masih Sekolah</p>
+          <p>Masih Sekolah</p>
         </div>
         <div class="card" tabindex="0">
           <h3>Lokasi</h3>
@@ -356,9 +397,7 @@
         </div>
       </div>
       <div class="favorite-song" aria-label="Lagu favorit"> 🎵 Lagu Favorit: "7 Years by Lukas Graham" </div>
-      <div class="spotify-embed" aria-label="Lagu favorit Spotify" role="region" tabindex="0">
-        <iframe src="https://open.spotify.com/embed/track/5kqIPrATaCc2LqxVWzQGbk" width="300" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify embed lagu favorit"></iframe>
-      </div>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5kqIPrATaCc2LqxVWzQGbk" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <div id="credit-by-someone">Made by <a>Someone</a>
       </div>
       <a href="https://www.instagram.com/keccahaura.a/" target="_blank" rel="noopener noreferrer" class="btn-follow" aria-label="Follow Nikeisha di Instagram">
@@ -368,6 +407,11 @@
         <span class="btn-text">Instagram</span>
       </a>
     </div>
+    </div>
+    <div class="translate-buttons">
+        <a href="id.html" class="translate-btn" id="btn-id">🇮🇩 Indonesia</a>
+        <a href="en.html" class="translate-btn" id="btn-en">🇬🇧 English</a>
+        <a href="sa.html" class="translate-btn" id="btn-sa">🇸🇦 Arabic</a>
     </div>
     <script>
       const scrollTrigger = 150;
@@ -395,6 +439,25 @@
           creditsss.classList.add("show");
         } else {
           creditsss.classList.remove("show");
+        }
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname.toLowerCase();
+        const fileName = path.substring(path.lastIndexOf('/') + 1);
+        const btnId = document.getElementById('btn-id');
+        const btnEn = document.getElementById('btn-en');
+        const btnSa = document.getElementById('btn-sa');
+        if (fileName.startsWith('id')) {
+          btnId?.classList.add('active');
+        } else if (fileName.startsWith('en')) {
+          btnEn?.classList.add('active');
+        } else if (fileName.startsWith('sa')) {
+          btnSa?.classList.add('active');
+        }
+        const allowedPrefixes = ['/id', '/en', '/sa', '/id.html', '/en.html', '/sa.html'];
+        const isAllowed = allowedPrefixes.some(prefix => path.startsWith(prefix));
+        if (isAllowed) {
+          localStorage.setItem('lastVisitedPage', path);
         }
       });
     </script>
